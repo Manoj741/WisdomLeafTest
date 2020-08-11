@@ -3,7 +3,7 @@
 //  WisdonLeaf-Test
 //
 //  Created by manoj kumar on 11/08/20.
-//  Copyright © 2020 estuate. All rights reserved.
+//  Copyright © 2020 Manoj Kumar M. All rights reserved.
 //
 
 import UIKit
