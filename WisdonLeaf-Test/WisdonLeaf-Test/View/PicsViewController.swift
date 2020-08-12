@@ -24,7 +24,6 @@ class PicsViewController: UIViewController {
     
     // calls remote url to fetch the photos information and loads the tableView
     func getPhotosInformation() {
-        
         Service.shared.fetchPhotos(){ (response, error) in
             if error == nil {
                 if let photos = response {
@@ -40,6 +39,10 @@ class PicsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func onClickRefresh(_ sender: Any) {
+        getPhotosInformation()
     }
     
 }
@@ -58,6 +61,11 @@ extension PicsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPhoto = fetchedPhotos[indexPath.row]
+        showAlert(selectedPhoto.author, message: selectedPhoto.download_url)
     }
     
 }

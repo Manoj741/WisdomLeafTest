@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoCell" rowHeight="109" id="tpg-MM-Zeg" customClass="PhotoTableViewCell" customModule="WisdonLeaf_Test" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="photoCell" rowHeight="109" id="tpg-MM-Zeg" customClass="PhotoTableViewCell" customModule="WisdonLeaf_Test" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tpg-MM-Zeg" id="rry-rB-qtb">
@@ -80,7 +80,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Picsum" id="QuX-uq-hp2"/>
+                    <navigationItem key="navigationItem" title="Picsum" id="QuX-uq-hp2">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="M27-EZ-VeC">
+                            <connections>
+                                <action selector="onClickRefresh:" destination="BYZ-38-t0r" id="iFp-2g-p2Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photosTableView" destination="1wN-lu-UA4" id="Vpb-FC-haz"/>
                     </connections>
@@ -110,5 +116,6 @@
     </scenes>
     <resources>
         <image name="1026-4621x3070" width="4621" height="3070"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
     </resources>
 </document>

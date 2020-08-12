@@ -68,13 +68,12 @@
 			children = (
 				FF2E554F24E2FBC000419742 /* AppDelegate.swift */,
 				FF2E555124E2FBC000419742 /* SceneDelegate.swift */,
+				FF80635124E44D54005E0738 /* Storyboards */,
 				FF2E557124E31A0F00419742 /* Extensions */,
 				FF2E556C24E316D400419742 /* Utils */,
 				FF2E556524E3142100419742 /* Model */,
 				FF2E556424E313E700419742 /* View */,
-				FF2E555524E2FBC000419742 /* Main.storyboard */,
 				FF2E555824E2FBC400419742 /* Assets.xcassets */,
-				FF2E555A24E2FBC400419742 /* LaunchScreen.storyboard */,
 				FF2E555D24E2FBC400419742 /* Info.plist */,
 			);
 			path = "WisdonLeaf-Test";
@@ -112,6 +111,15 @@
 				FF2E557224E31A3700419742 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FF80635124E44D54005E0738 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E555524E2FBC000419742 /* Main.storyboard */,
+				FF2E555A24E2FBC400419742 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

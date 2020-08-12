@@ -22,7 +22,6 @@ class PhotoTableViewCell: UITableViewCell {
 
     func configureCell(with data: Photo) {
         
-//        photoImageView.image
         titleLabel.text = data.author
         descriptionLabel.text = data.url
         
