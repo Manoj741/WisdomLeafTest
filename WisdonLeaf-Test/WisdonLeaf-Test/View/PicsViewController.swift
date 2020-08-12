@@ -13,22 +13,34 @@ class PicsViewController: UIViewController {
     @IBOutlet weak var photosTableView: UITableView!
     
     var fetchedPhotos: [Photo] = []
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        photosTableView.rowHeight = UITableView.automaticDimension
+                
+        setupRefreshControl()
         getPhotosInformation()
     }
     
+    // sets up the refresh control things
+    func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .none
+        refreshControl.addTarget(self, action: #selector(onClickRefresh(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh...", attributes: nil)
+        self.photosTableView.addSubview(refreshControl)
+    }
     
     // calls remote url to fetch the photos information and loads the tableView
     func getPhotosInformation() {
+        LoadingView.shared.showOverlay(view: self.view)
         Service.shared.fetchPhotos(){ (response, error) in
             if error == nil {
                 if let photos = response {
                     print(photos)
                     DispatchQueue.main.async {
+                        LoadingView.shared.hideOverlayView()
+                        self.refreshControl.endRefreshing()
                         self.fetchedPhotos = photos
                         self.photosTableView.reloadData()
                     }
@@ -42,12 +54,15 @@ class PicsViewController: UIViewController {
     }
     
     @IBAction func onClickRefresh(_ sender: Any) {
+        imageCache.removeAllObjects()  // Remove image data from cache when refresh
+        photosTableView.setContentOffset(CGPoint.zero, animated: true)
         getPhotosInformation()
     }
     
 }
 
 extension PicsViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.fetchedPhotos.count
     }
